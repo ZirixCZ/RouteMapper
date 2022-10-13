@@ -12,15 +12,11 @@ const CreatePost = () => {
         image: null
     });
 
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState<any>(null);
     const [description, setDescription] = useState<any>(null);
     const navigate = useNavigate();
 
     const inputFile = useRef<any>(null);
-
-    const createPost = () => {
-
-    }
 
     const chooseImage = () => {
         inputFile?.current?.click();
@@ -32,6 +28,7 @@ const CreatePost = () => {
         reader.readAsDataURL(file);
         reader.onload = function () {
             console.log(reader.result);
+            setImage(reader.result);
         };
         reader.onerror = function (error) {
             console.log('Error: ', error);
@@ -42,8 +39,16 @@ const CreatePost = () => {
         if (image === null || description === null)
             return;
 
+        console.log(post)
         fetch("http://localhost:8080/post", {method: "POST", body: post}).then((res) => console.log(res))
     }
+
+    useEffect(() => {
+        setPost({
+            image: image,
+            description: description
+        })
+    }, [image, description])
 
     return (
         <div className={styles.container}>
@@ -52,9 +57,10 @@ const CreatePost = () => {
                 <div className={styles.postWrapper}>
                     <input alt="image picker" type='file' id='file' onChange={(e) => {
                         // @ts-ignore
-                        setImage(getBase64(e?.target?.files[0]));
+                        getBase64(e?.target?.files[0]);
                     }} ref={inputFile} style={{display: 'none'}}/>
-                    <div className={styles.postPhoto} onClick={() => chooseImage()}><img src={Image} alt="vyberte obrazek" /></div>
+                    {image !== null ? <img src={image} alt="chosen photo" className={styles.postPhoto} /> : <div className={styles.postPhoto} onClick={() => chooseImage()}><img src={Image} alt="vyberte obrazek" /></div>}
+
                     <div className={styles.postMap}><img src={Map} alt="vyberte z mapy" /></div>
                 </div>
                 <div className={styles.bottomContainer}>

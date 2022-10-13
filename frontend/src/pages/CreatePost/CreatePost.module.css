@@ -10,14 +10,14 @@
 
 .wrapper {
     margin-top: 1em;
-    width: 45%;
+    width: 60%;
     height: 100%;
 }
 
 .postWrapper {
     display: flex;
     flex-direction: row;
-    height: 70%;
+    height: 65%;
     background-color: blue;
     margin-top: 1em;
 }
