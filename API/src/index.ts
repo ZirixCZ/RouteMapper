@@ -60,6 +60,13 @@ app.post("/feed/vote", async (req: any, res: any) => {
   });
 });
 
+app.get("/map/geojson", async (req, res) => {
+  fs.readFile("./db/routes.geojson", "utf8", function (err, data) {
+    if (err) throw err;
+    res.send(data);
+  });
+});
+
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
 });
