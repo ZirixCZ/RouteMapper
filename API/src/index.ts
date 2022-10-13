@@ -28,7 +28,7 @@ app.get("/feed", async (req, res) => {
   });
 });
 
-app.post("/feed", jsonParser, async (req, res) => {
+app.post("/post", jsonParser, async (req, res) => {
   let new_post = req.body as Feed;
   fs.readFile("./db/feed.json", "utf8", function (err, data) {
     if (err) throw err;
@@ -56,13 +56,9 @@ app.post("/feed/vote", async (req: any, res: any) => {
     }
 
     write_feed_arr_to_file(parsed);
-    res.sendStatus(200);
+    res.send(post_to_edit);
   });
 });
-
-app.get("/diagnosis", async (req: any, res: any) => {});
-
-app.get("/doctors", (req: any, res: any) => {});
 
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
