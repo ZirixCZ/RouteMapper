@@ -2,7 +2,13 @@ import "./assets/App.css";
 import React from "react";
 import PlusSquare from "./assets/svg/plus-square.svg";
 import PersonCircle from "./assets/svg/person-circle.svg";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import Feed from "./pages/Feed/Feed";
 import Map from "./pages/Map/Map";
 
@@ -48,6 +54,7 @@ function App() {
       <Routes>
         <Route path="/feed" element={<Feed />} />
         <Route path="/map" element={<Map />} />
+        <Route path="*" element={<Navigate to="/feed" />} />
       </Routes>
     </div>
   );
