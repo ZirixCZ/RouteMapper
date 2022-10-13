@@ -40,7 +40,25 @@ app.post("/feed", jsonParser, async (req, res) => {
   });
 });
 
-app.post("/feed/vote", async (req: any, res: any) => {});
+app.post("/feed/vote", async (req: any, res: any) => {
+  fs.readFile("./db/feed.json", "utf8", function (err, data) {
+    if (err) throw err;
+    let parsed = JSON.parse(data) as Feed[];
+
+    let id = req.query.id;
+    let action = req.query.action;
+
+    let post_to_edit = parsed.filter((s) => s.id == id)[0];
+    if (action == "upvote") {
+      post_to_edit.number_of_upvotes += 1;
+    } else if (action == "downvote") {
+      post_to_edit.number_of_downvotes += 1;
+    }
+
+    write_feed_arr_to_file(parsed);
+    res.sendStatus(200);
+  });
+});
 
 app.get("/diagnosis", async (req: any, res: any) => {});
 
