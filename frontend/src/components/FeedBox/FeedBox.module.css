@@ -20,13 +20,33 @@
 
 .paragraphContainer {
     display: flex;
+    flex-direction: column;
     justify-content: start;
     align-items: start;
-    background-color: blue;
-    width: 100%
+    width: 40em;
+}
+
+.paragraphContainer p {
+    margin-right: 1em;
+    margin-bottom: 0;
+}
+
+.paragraphContainer img {
+    margin-right: 0.5em;
 }
 
 .paragraph {
-    margin: 1em 0 3em;
+    margin: 0.5em 0 0;
     padding: 0;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.divider {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
