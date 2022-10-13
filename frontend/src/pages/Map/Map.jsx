@@ -2,7 +2,7 @@ import React from "react";
 import { GeoJSON, MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const Map = () => {
-  const data = {
+  const abc = {
     type: "FeatureCollection",
     name: "Stav_povrchu_silnic",
     crs: {
@@ -112,6 +112,16 @@ const Map = () => {
     ],
   };
 
+  // const [feed, setFeed] = useState<any[]>([]);
+
+  // useEffect(() => {
+  //     fetch("http://localhost:8080/feed").then((res) => {
+  //         res.json().then((json) => {
+  //             setFeed(json)
+  //         })
+  //     })
+  // }, [])
+
   return (
     <div>
       <MapContainer
@@ -129,6 +139,7 @@ const Map = () => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
+        <GeoJSON data={abc} />
       </MapContainer>
     </div>
   );
