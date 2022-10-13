@@ -20,7 +20,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{height: "100vh", display: "flex", alignItems: "end"}}>
       {geoJson != null && feed != null ? (
         <MapContainer
           style={{ width: "100%", height: "93vh" }}
