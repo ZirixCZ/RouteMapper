@@ -20,7 +20,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div style={{height: "100vh", display: "flex", alignItems: "end"}}>
+    <div style={{ height: "100vh", display: "flex", alignItems: "end" }}>
       {geoJson != null && feed != null ? (
         <MapContainer
           style={{ width: "100%", height: "93vh" }}
@@ -35,14 +35,8 @@ const Map = () => {
           {feed.map((s) => (
             <Marker position={[s.position.lat, s.position.lng]}>
               <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-                <FeedBox
-                  id={s.id}
-                  img={s.base64_image}
-                  description={s.description}
-                  downvotes={s.number_of_downvotes}
-                  upvotes={s.number_of_upvotes}
-                />
+                <img src={s.base64_image} width="300" height="300" />
+                <p>{s.description}</p>
               </Popup>
             </Marker>
           ))}
