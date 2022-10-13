@@ -23,6 +23,9 @@
 }
 
 .postPhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     height: 100%;
     width: 70%;
@@ -30,13 +33,24 @@
     border: 2px solid #919192;
 }
 
+.postPhoto img {
+    width: 5em;
+}
+
 .postMap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     height: 100%;
     width: 30%;
     background-color: #E9E9E9;
     border: 2px solid #919192;
     border-left: 0;
+}
+
+.postMap img {
+    width: 5em;
 }
 
 .bottomContainer {
@@ -47,7 +61,7 @@
 }
 
 .bottomContainer textarea {
-    padding: 0;
+    padding: 1em;
     margin: 0;
     font-size: 0.6em;
     width: 70%;
@@ -57,12 +71,15 @@
     outline: none;
     color: #919192;
     border: 2px solid #919192;
+    box-sizing: border-box;
 }
 
 .bottomContainer button {
     width: 80%;
     height: 100%;
     border-radius: 0;
+    font-size: 0.75em;
+    cursor: pointer;
     outline: none;
     border: 2px solid #919192;
     background-color: white;
