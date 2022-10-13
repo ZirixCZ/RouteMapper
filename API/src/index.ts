@@ -10,8 +10,9 @@ const app = express();
 const port = 8080;
 
 app.use(cors());
+app.use(express.json({ limit: "50mb" }));
 
-const jsonParser = bodyParser.json();
+const jsonParser = bodyParser.json({ limit: "50mb" });
 
 app.get("/", (req, res) => {
   res.send("Hello world!");
@@ -57,6 +58,13 @@ app.post("/feed/vote", async (req: any, res: any) => {
 
     write_feed_arr_to_file(parsed);
     res.send(post_to_edit);
+  });
+});
+
+app.get("/map/geojson", async (req, res) => {
+  fs.readFile("./db/routes.geojson", "utf8", function (err, data) {
+    if (err) throw err;
+    res.send(data);
   });
 });
 

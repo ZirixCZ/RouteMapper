@@ -1,6 +1,8 @@
+
 import React, {useState, useEffect} from "react";
 import FeedBox from "../../components/FeedBox/FeedBox";
 import styles from "./Feed.module.css";
+import "./Feed.module.css";
 
 const Feed = () => {
 
@@ -22,8 +24,7 @@ const Feed = () => {
                     <FeedBox id={obj.id} img={obj.base64_image} description={obj.description} downvotes={obj.number_of_downvotes} upvotes={obj.number_of_upvotes} />
                 )
             })}
-        </div>
-    )
+        </div>)
 
 }
 
