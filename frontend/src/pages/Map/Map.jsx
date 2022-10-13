@@ -1,146 +1,72 @@
 import React from "react";
 import { GeoJSON, MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import FeedBox from "../../components/FeedBox/FeedBox";
 
 const Map = () => {
-  const abc = {
-    type: "FeatureCollection",
-    name: "Stav_povrchu_silnic",
-    crs: {
-      type: "name",
-      properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" },
-    },
-    features: [
-      {
-        type: "Feature",
-        properties: {
-          OBJECTID: 1,
-          stav_sil: "výborný",
-          stav_rok: "2020",
-          ozn_sil: "03535",
-          ozn_usek: "1",
-          ozn_trida: "III. třída",
-          ozn_kat: "komunikace s místním významem",
-          ozn_delka: "999",
-          typ_povrch: "asfaltobetonový",
-          nazev_vusc: "Královéhradecký kraj",
-          kod_vusc: "CZ052",
-          dp_id: "SPS80",
-          SHAPE_Length: 0.011297192895094591,
-        },
-        geometry: {
-          type: "MultiLineString",
-          coordinates: [
-            [
-              [15.751780622000069, 50.261915171000055],
-              [15.752422112000033, 50.261582467000039],
-              [15.753927253000029, 50.260803693000071],
-              [15.755135867000035, 50.26017399300008],
-              [15.755258968000078, 50.260114140000042],
-              [15.755593404000024, 50.259945754000057],
-              [15.756115034000061, 50.259668831000056],
-              [15.756237084000077, 50.259604298000056],
-              [15.756331502000023, 50.259553130000029],
-              [15.756448144000046, 50.259482749000028],
-              [15.756636369000034, 50.259363979000057],
-              [15.756765537000035, 50.259267305000037],
-              [15.756871980000028, 50.259184191000031],
-              [15.756972654000037, 50.259101722000025],
-              [15.757092855000053, 50.258994039000072],
-              [15.757188595000059, 50.25890014600003],
-              [15.757698936000054, 50.258380590000058],
-              [15.758592785000076, 50.257501072000082],
-              [15.759498978000067, 50.25656617900006],
-              [15.759540796000067, 50.256525921000048],
-              [15.75958939800006, 50.25648790300005],
-              [15.759652488000029, 50.256439586000056],
-              [15.759668829000077, 50.256428433000053],
-              [15.759702181000023, 50.256407084000045],
-              [15.760178101000065, 50.256137223000053],
-              [15.760208256000055, 50.256116262000035],
-              [15.760238661000074, 50.256094145000077],
-              [15.760283451000078, 50.256053843000075],
-              [15.760332339000058, 50.256000636000067],
-              [15.760354781000046, 50.255966590000071],
-              [15.760372720000078, 50.255928279000045],
-              [15.760382034000031, 50.255895338000073],
-              [15.760388531000046, 50.255868040000053],
-              [15.760392495000076, 50.255823254000063],
-              [15.760384025000064, 50.255662104000066],
-              [15.760349394000059, 50.255223080000064],
-            ],
-          ],
-        },
-      },
-      {
-        type: "Feature",
-        properties: {
-          OBJECTID: 2,
-          stav_sil: "havarijní",
-          stav_rok: "2019",
-          ozn_sil: "03535",
-          ozn_usek: "1",
-          ozn_trida: "III. třída",
-          ozn_kat: "komunikace s místním významem",
-          ozn_delka: "100",
-          typ_povrch: "asfaltobetonový",
-          nazev_vusc: "Královéhradecký kraj",
-          kod_vusc: "CZ052",
-          dp_id: "SPS81",
-          SHAPE_Length: 0.00126435984021461,
-        },
-        geometry: {
-          type: "MultiLineString",
-          coordinates: [
-            [
-              [15.750619004000043, 50.262130056000046],
-              [15.750880366000047, 50.262234295000042],
-              [15.750945545000036, 50.262250607000055],
-              [15.750997806000044, 50.262257419000036],
-              [15.751039374000072, 50.262258703000043],
-              [15.751072046000047, 50.26225695200003],
-              [15.751101640000059, 50.262251252000056],
-              [15.751128533000042, 50.262244892000069],
-              [15.751152950000062, 50.262235898000029],
-              [15.751172216000043, 50.262227488000065],
-              [15.751229740000042, 50.262201311000069],
-              [15.751372748000051, 50.26212670700005],
-              [15.751780622000069, 50.261915171000055],
-            ],
-          ],
-        },
-      },
-    ],
-  };
+  const [geoJson, setGeoJson] = React.useState(null);
+  const [feed, setFeed] = React.useState(null);
 
-  // const [feed, setFeed] = useState<any[]>([]);
-
-  // useEffect(() => {
-  //     fetch("http://localhost:8080/feed").then((res) => {
-  //         res.json().then((json) => {
-  //             setFeed(json)
-  //         })
-  //     })
-  // }, [])
+  React.useEffect(() => {
+    fetch("http://localhost:8080/map/geojson").then((res) => {
+      res.json().then((json) => {
+        setGeoJson(json);
+      });
+    });
+    fetch("http://localhost:8080/feed").then((res) => {
+      res.json().then((json) => {
+        setFeed(json);
+      });
+    });
+  }, []);
 
   return (
     <div>
-      <MapContainer
-        style={{ width: "100%", height: "93vh" }}
-        center={[51.505, -0.09]}
-        zoom={13}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[51.505, -0.09]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-        <GeoJSON data={abc} />
-      </MapContainer>
+      {geoJson != null && feed != null ? (
+        <MapContainer
+          style={{ width: "100%", height: "93vh" }}
+          center={[50.3098, 15.8337]}
+          zoom={10}
+          scrollWheelZoom={true}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {feed.map((s) => (
+            <Marker position={[s.position.lat, s.position.lng]}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+                <FeedBox
+                  id={s.id}
+                  img={s.base64_image}
+                  description={s.description}
+                  downvotes={s.number_of_downvotes}
+                  upvotes={s.number_of_upvotes}
+                />
+              </Popup>
+            </Marker>
+          ))}
+          <GeoJSON
+            key="geo-json-key"
+            data={geoJson}
+            style={(s) => {
+              if (s.properties.stav_sil === "výborný") {
+                return { color: "#1FA2FF" };
+              } else if (s.properties.stav_sil === "dobrý") {
+                return { color: "#0D39FF" };
+              } else if (s.properties.stav_sil === "nevyhovující") {
+                return { color: "#8B18D8" };
+              } else if (s.properties.stav_sil === "havarijní") {
+                return { color: "#F35663" };
+              } else if (s.properties.stav_sil === "SUPERhavarijní") {
+                return { color: "#EC0000" };
+              }
+            }}
+          />
+        </MapContainer>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
