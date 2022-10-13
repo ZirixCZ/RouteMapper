@@ -8,8 +8,14 @@ import styles from "./CreatePost.module.css";
 const CreatePost = () => {
 
     const [post, setPost] = useState<any>({
-        description: null,
-        image: null
+        description: "",
+        number_of_upvotes: 0,
+        number_of_downvotes: 0,
+        position: {
+            lat: 0,
+            lng: 0,
+        },
+        base64_image: "",
     });
 
     const [image, setImage] = useState<any>(null);
@@ -45,7 +51,7 @@ const CreatePost = () => {
 
     useEffect(() => {
         setPost({
-            image: image,
+            base64_image: image,
             description: description
         })
     }, [image, description])
