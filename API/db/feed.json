@@ -12,76 +12,87 @@
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 3,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 4,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 5,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 6,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 7,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 8,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 9,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 10,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 11,
     "description": "Lol naboural jsem, na nic silnice",
     "number_of_upvotes": 5,
     "number_of_downvotes": 3,
-    "position": { "lat": 50.03310632, "lng": 15.9 }
+    "position": { "lat": 50.03310632, "lng": 15.9 },
+    "base64_image": ""
   },
   {
     "id": 12,
     "description": "Pokus",
     "number_of_upvotes": 15,
     "number_of_downvotes": 2,
-    "position": { "lat": 50.4, "lng": 15.6 }
+    "position": { "lat": 50.4, "lng": 15.6 },
+    "base64_image": ""
   }
 ]
