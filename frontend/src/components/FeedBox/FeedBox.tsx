@@ -8,7 +8,9 @@ const FeedBox = (props: any) => {
             <div className={styles.container}>
                 <img src={props.img} alt="vymol" />
             </div>
-            <p className={styles.paragraph}>{props.description}</p>
+            <div className={styles.paragraphContainer}>
+                <p className={styles.paragraph}>{props.description}</p>
+            </div>
         </div>
     )
 
