@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Feed from "./pages/Feed/Feed";
 import Map from "./pages/Map/Map";
+import CreatePost from "./pages/CreatePost/CreatePost";
 
 function App() {
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ function App() {
             className="cursor-pointy"
             src={PlusSquare}
             alt="plus square icon"
+            onClick={() => navigate("/create")}
           />
           <img src={PersonCircle} alt="person circle icon" />
         </div>
@@ -54,6 +56,7 @@ function App() {
       <Routes>
         <Route path="/feed" element={<Feed />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/create" element={<CreatePost />} />
         <Route path="*" element={<Navigate to="/feed" />} />
       </Routes>
     </div>
